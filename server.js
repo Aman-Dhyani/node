@@ -1,7 +1,8 @@
 // index.js
 const express = require("express");
+require("dotenv")
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Define a route for "/"
 app.get("/", (req, res) => {
@@ -9,6 +10,4 @@ app.get("/", (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
