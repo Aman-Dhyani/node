@@ -1,16 +1,18 @@
-// index.js
 const express = require("express");
-require("dotenv").config();
+require("dotenv").config(); // optional for local env
+
 const app = express();
+
+// Use env PORT if available, fallback to 3000 for local dev
 const PORT = process.env.PORT || 3000;
 
-// Define a route for "/"
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+// Middleware example
+app.use(express.json());
 
-// Start the server
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Routes
+app.get("/", (req, res) => res.send("Hello World"));
+
+// Listen on 0.0.0.0 for container access
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
