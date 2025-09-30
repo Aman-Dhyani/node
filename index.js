@@ -1,5 +1,6 @@
 const express = require("express");
-require("dotenv").config(); // optional for local env
+require("dotenv").config({ override: true });
+ // optional for local env
 
 const app = express();
 
